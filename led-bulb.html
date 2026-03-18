@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED Bulb</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a1628;
+      background: radial-gradient(ellipse at 50% 40%, #122a4a 0%, #0a1628 55%, #050d18 100%);
+    }
+
+    .led-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* LED dome */
+    .led {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 30%,
+        #fffef5 0%,
+        #e8f4a8 25%,
+        #c4e85a 45%,
+        #9dd94a 65%,
+        #6bc43a 100%
+      );
+      box-shadow:
+        0 0 20px 4px rgba(180, 255, 100, 0.85),
+        0 0 48px 12px rgba(120, 220, 80, 0.45),
+        0 0 80px 24px rgba(80, 180, 60, 0.2),
+        inset -8px -8px 16px rgba(40, 120, 30, 0.35),
+        inset 12px 12px 20px rgba(255, 255, 255, 0.5);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        filter: brightness(1);
+        box-shadow:
+          0 0 20px 4px rgba(180, 255, 100, 0.85),
+          0 0 48px 12px rgba(120, 220, 80, 0.45),
+          0 0 80px 24px rgba(80, 180, 60, 0.2),
+          inset -8px -8px 16px rgba(40, 120, 30, 0.35),
+          inset 12px 12px 20px rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        filter: brightness(1.08);
+        box-shadow:
+          0 0 28px 8px rgba(200, 255, 130, 0.95),
+          0 0 56px 16px rgba(140, 235, 100, 0.55),
+          0 0 100px 32px rgba(100, 200, 80, 0.28),
+          inset -8px -8px 16px rgba(40, 120, 30, 0.35),
+          inset 12px 12px 20px rgba(255, 255, 255, 0.55);
+      }
+    }
+
+    /* Small base */
+    .base {
+      width: 28px;
+      height: 14px;
+      margin-top: -2px;
+      background: linear-gradient(180deg, #3d4a5c 0%, #2a3544 100%);
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="led-wrap" aria-label="LED bulb">
+    <div class="led"></div>
+    <div class="base"></div>
+  </div>
+</body>
+</html>
